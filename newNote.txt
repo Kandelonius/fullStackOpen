@@ -1,18 +1,41 @@
-user enters a not into the exampleapp{
+user enters a not into the exampleapp(0.4){
+    user -> browser: 'new_note'
     # after user enters text into form and clicks the submit button
 
-    browser -> server: HTTP POST 'new_note + Date to 
+    browser -> server: HTTP POST 'new_note' + Date to 
     https://fullstack-exampleapp.herokuapp.com/notes
-
+    server -> browser: accept
     # server adds the note to the notes section as an object 
     to the end of the notes section
 
-    server -> browser: notes + main.css + main.js + data.json
-
+    browser -> server: HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
+    server -> browser: HTML-code
+    browser -> server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+    server -> browser: main.css
+    browser -> server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.js
+    server -> browser: main.js
+    browser -> server: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+    server -> browser: notes
     # reloads the full page including user input
 }
 
-user goes to the single page app{
+user goes to the single page app(0.5){
+    browser -> server: HTTP GET https://fullstack-exampleapp.herokuapp.com/spa
+    server -> browser: HTML-code
+    browser -> server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+    server -> browser: main.css
+    browser -> server: HTTP GET https://fullstack-exampleapp.herokuapp.com/spa.js
+    server -> browser: main.js
+    browser -> server: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+    server -> browser: notes
+    # loads the full spa site
+}
 
+user enters a not into the spa version of exampleapp(0.6){
+    user -> browser: 'new_note'
+    # after user enters text into form and clicks the submit button
 
+    browser -> server: HTTP POST 'new_note' + Date to
+    https://fullstack-exampleapp.herokuapp.com/new_note_spa
+    # browser stays on the same page with no further HTTP requests
 }
