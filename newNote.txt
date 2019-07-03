@@ -1,0 +1,11 @@
+# after user enters text into form and clicks the submit button
+
+browser -> server: HTTP PUSH 'new_note + Date to 
+https://fullstack-exampleapp.herokuapp.com/notes
+
+# server adds the note to the notes section as an object 
+to the end of the notes section
+
+server -> browser: notes 
+
+#displays full notes including user input
