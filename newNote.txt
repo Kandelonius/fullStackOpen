@@ -1,11 +1,18 @@
-# after user enters text into form and clicks the submit button
+user enters a not into the exampleapp{
+    # after user enters text into form and clicks the submit button
 
-browser -> server: HTTP PUSH 'new_note + Date to 
-https://fullstack-exampleapp.herokuapp.com/notes
+    browser -> server: HTTP POST 'new_note + Date to 
+    https://fullstack-exampleapp.herokuapp.com/notes
 
-# server adds the note to the notes section as an object 
-to the end of the notes section
+    # server adds the note to the notes section as an object 
+    to the end of the notes section
 
-server -> browser: notes 
+    server -> browser: notes + main.css + main.js + data.json
 
-#displays full notes including user input
+    # reloads the full page including user input
+}
+
+user goes to the single page app{
+
+
+}
